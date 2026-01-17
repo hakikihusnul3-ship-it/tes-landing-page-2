@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagramable AI - Ubah Foto Jadi Viral</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Space Grotesk untuk kesan Modern & Tech -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Inter"', 'sans-serif'],
+                        display: ['"Space Grotesk"', 'sans-serif'],
+                    },
+                    colors: {
+                        neon: {
+                            DEFAULT: '#ccff00', /* Neon Lime */
+                            glow: '#b3ff00',
+                            dim: '#4d6600'
+                        },
+                        dark: {
+                            900: '#0a0a0a',
+                            800: '#121212',
+                            700: '#1c1c1c',
+                            card: '#171717'
+                        }
+                    },
+                    backgroundImage: {
+                        'grid-pattern': "linear-gradient(to right, #1f2937 1px, transparent 1px), linear-gradient(to bottom, #1f2937 1px, transparent 1px)",
+                    },
+                    boxShadow: {
+                        'neon': '0 0 20px rgba(204, 255, 0, 0.4)',
+                        'neon-hover': '0 0 40px rgba(204, 255, 0, 0.6)',
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0a0a0a;
+            color: white;
+            overflow-x: hidden;
+        }
+        .text-glow {
+            text-shadow: 0 0 10px rgba(204, 255, 0, 0.5);
+        }
+        .glass-card {
+            background: rgba(23, 23, 23, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .grid-bg {
+            background-size: 40px 40px;
+            mask-image: linear-gradient(to bottom, transparent, 10%, black, 90%, transparent);
+            -webkit-mask-image: linear-gradient(to bottom, transparent, 5%, black, 95%, transparent);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-neon selection:text-black">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 top-0 transition-all duration-300" id="navbar">
+        <div class="absolute inset-0 bg-dark-900/80 backdrop-blur-md border-b border-white/5"></div>
+        <div class="max-w-7xl mx-auto px-6 py-4 relative flex justify-between items-center">
+            <div class="flex items-center gap-2 group cursor-pointer">
+                <div class="w-8 h-8 bg-neon rounded text-black flex items-center justify-center font-bold text-xl group-hover:shadow-neon transition-all">I</div>
+                <span class="font-display font-bold text-xl tracking-tight text-white">Instagramable<span class="text-neon">.AI</span></span>
+            </div>
+            
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-400">
+                <a href="#features" class="hover:text-neon transition-colors">Fitur</a>
+                <a href="#demo" class="hover:text-neon transition-colors">Cara Kerja</a>
+                <a href="#testimonials" class="hover:text-neon transition-colors">Testimoni</a>
+            </div>
+
+            <a href="https://gemini.google.com/share/aa73bf5b2dbf" target="_blank" class="hidden md:block bg-white/10 hover:bg-neon hover:text-black text-white px-6 py-2.5 rounded-full font-bold text-sm transition-all border border-white/10 hover:border-neon hover:shadow-neon">
+                Unduh Sekarang
+            </a>
+            
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden text-white">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute inset-0 bg-grid-pattern opacity-[0.05] grid-bg"></div>
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-neon/20 rounded-full blur-[120px] animate-pulse-slow"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-64 h-64 bg-blue-500/10 rounded-full blur-[100px]"></div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+                
+                <!-- Text Content -->
+                <div class="flex-1 text-center lg:text-left" data-aos="fade-up">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-neon/30 bg-neon/5 text-neon text-xs font-bold uppercase tracking-wider mb-6">
+                        <span class="w-2 h-2 rounded-full bg-neon animate-pulse"></span>
+                        Teknologi AI Terbaru v2.5
+                    </div>
+                    
+                    <h1 class="font-display font-bold text-5xl lg:text-7xl leading-[1.1] mb-6 text-white">
+                        Ubah Foto Biasa Jadi <br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-neon to-emerald-400 text-glow">Masterpiece Viral.</span>
+                    </h1>
+                    
+                    <p class="text-gray-400 text-lg lg:text-xl mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                        Tidak perlu fotografer pro. Cukup satu klik, AI kami mengubah pencahayaan, gaya, dan estetika foto Anda secara instan.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
+                        <a href="#download" class="w-full sm:w-auto px-8 py-4 bg-neon text-black font-bold text-lg rounded-xl hover:bg-white hover:shadow-neon transition-all transform hover:-translate-y-1 flex items-center justify-center gap-2">
+                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
+                            Coba Gratis Sekarang
+                        </a>
+                        <button class="w-full sm:w-auto px-8 py-4 bg-transparent border border-white/20 text-white font-bold text-lg rounded-xl hover:bg-white/5 hover:border-white transition-all flex items-center justify-center gap-2">
+                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                            Lihat Demo
+                        </button>
+                    </div>
+
+                    <div class="mt-8 flex items-center justify-center lg:justify-start gap-4 text-sm text-gray-500">
+                        <div class="flex -space-x-2">
+                            <div class="w-8 h-8 rounded-full bg-gray-700 border-2 border-black"></div>
+                            <div class="w-8 h-8 rounded-full bg-gray-600 border-2 border-black"></div>
+                            <div class="w-8 h-8 rounded-full bg-gray-500 border-2 border-black"></div>
+                        </div>
+                        <p>Dipercaya oleh <span class="text-white font-bold">10,000+</span> Kreator</p>
+                    </div>
+                </div>
+
+                <!-- Visual Content (Mockup) -->
+                <div class="flex-1 relative" data-aos="fade-left" data-aos-delay="200">
+                    <div class="relative w-[280px] sm:w-[320px] mx-auto animate-float z-20">
+                        <!-- Phone Frame -->
+                        <div class="rounded-[2.5rem] overflow-hidden border-[8px] border-gray-800 shadow-2xl bg-black relative">
+                            <!-- Mock Screen Content -->
+                            <div class="bg-gray-900 h-[600px] w-full relative overflow-hidden group">
+                                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80" class="absolute inset-0 w-full h-full object-cover opacity-50 transition-all duration-700 group-hover:opacity-0" alt="Original">
+                                <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=800&q=80" class="absolute inset-0 w-full h-full object-cover opacity-0 transition-all duration-700 group-hover:opacity-100 scale-105" alt="Processed">
+                                
+                                <!-- Floating UI Elements on Screen -->
+                                <div class="absolute bottom-0 inset-x-0 p-6 bg-gradient-to-t from-black/90 to-transparent">
+                                    <div class="flex gap-2 mb-4">
+                                        <div class="px-3 py-1 bg-neon text-black text-xs font-bold rounded-full">Processing 100%</div>
+                                    </div>
+                                    <div class="h-1 w-full bg-gray-700 rounded-full overflow-hidden">
+                                        <div class="h-full bg-neon w-full"></div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Scan Line -->
+                                <div class="absolute inset-x-0 top-0 h-1 bg-neon shadow-[0_0_20px_#ccff00] animate-[scan_3s_ease-in-out_infinite] opacity-70"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Floating Cards Behind -->
+                        <div class="absolute -right-12 top-20 bg-dark-card p-4 rounded-xl border border-white/10 shadow-xl backdrop-blur-md animate-pulse-slow">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-pink-500"></div>
+                                <div>
+                                    <div class="h-2 w-16 bg-gray-600 rounded mb-1"></div>
+                                    <div class="h-2 w-10 bg-gray-700 rounded"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Marquee Text -->
+    <div class="bg-neon py-3 overflow-hidden transform -rotate-1">
+        <div class="flex gap-8 whitespace-nowrap animate-[marquee_20s_linear_infinite] font-display font-bold text-black text-xl tracking-wider">
+            <span>AESTHETIC • INSTANT • VIRAL • NO FILTER NEEDED • AI POWERED • </span>
+            <span>AESTHETIC • INSTANT • VIRAL • NO FILTER NEEDED • AI POWERED • </span>
+            <span>AESTHETIC • INSTANT • VIRAL • NO FILTER NEEDED • AI POWERED • </span>
+        </div>
+    </div>
+
+    <!-- Features Grid -->
+    <section id="features" class="py-24 bg-dark-800 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="font-display font-bold text-3xl md:text-5xl mb-4">Lebih Cerdas dari <span class="text-neon">Filter Biasa</span></h2>
+                <p class="text-gray-400">Teknologi yang memahami struktur wajah dan pencahayaan, bukan sekadar tempelan warna.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="glass-card p-8 rounded-3xl group hover:border-neon/50 transition-all duration-300" data-aos="fade-up" data-aos-delay="0">
+                    <div class="w-14 h-14 bg-dark-700 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-neon group-hover:text-black transition-colors border border-white/10 text-neon">
+                        <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                    </div>
+                    <h3 class="font-display font-bold text-xl mb-3 text-white">Generasi Instan</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Hasilkan 20 variasi foto aesthetic dalam hitungan detik. Tidak perlu menunggu editor freelance.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="glass-card p-8 rounded-3xl group hover:border-neon/50 transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-14 h-14 bg-dark-700 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-neon group-hover:text-black transition-colors border border-white/10 text-neon">
+                        <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                    </div>
+                    <h3 class="font-display font-bold text-xl mb-3 text-white">Style Mimicry</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Suka gaya foto influencer? Upload referensinya, AI kami akan meniru gaya pencahayaan dan warnanya ke fotomu.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="glass-card p-8 rounded-3xl group hover:border-neon/50 transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-14 h-14 bg-dark-700 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-neon group-hover:text-black transition-colors border border-white/10 text-neon">
+                        <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+                    </div>
+                    <h3 class="font-display font-bold text-xl mb-3 text-white">Privasi Terjaga</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Foto diproses secara aman. Kami tidak menyimpan data wajah Anda untuk pelatihan model tanpa izin.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="demo" class="py-24 bg-dark-900 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col lg:flex-row gap-16 items-center">
+                <div class="flex-1 space-y-12">
+                    <h2 class="font-display font-bold text-4xl mb-8">3 Langkah Menuju <br><span class="text-neon text-glow">Feed Perfect</span></h2>
+                    
+                    <div class="flex gap-6 group" data-aos="fade-right">
+                        <div class="flex-shrink-0 w-12 h-12 rounded-full border border-neon text-neon flex items-center justify-center font-bold text-xl group-hover:bg-neon group-hover:text-black transition-all">1</div>
+                        <div>
+                            <h4 class="font-bold text-xl text-white mb-2">Upload Foto Close-up</h4>
+                            <p class="text-gray-400">Pilih foto terbaikmu. Pastikan wajah terlihat jelas untuk hasil maksimal.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-6 group" data-aos="fade-right" data-aos-delay="100">
+                        <div class="flex-shrink-0 w-12 h-12 rounded-full border border-gray-600 text-gray-400 flex items-center justify-center font-bold text-xl group-hover:border-neon group-hover:text-neon transition-all">2</div>
+                        <div>
+                            <h4 class="font-bold text-xl text-white mb-2">Pilih Style / Ratio</h4>
+                            <p class="text-gray-400">Pilih ukuran (1:1, 9:16) dan masukkan deskripsi style yang kamu inginkan.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-6 group" data-aos="fade-right" data-aos-delay="200">
+                        <div class="flex-shrink-0 w-12 h-12 rounded-full border border-gray-600 text-gray-400 flex items-center justify-center font-bold text-xl group-hover:border-neon group-hover:text-neon transition-all">3</div>
+                        <div>
+                            <h4 class="font-bold text-xl text-white mb-2">Magic Happens</h4>
+                            <p class="text-gray-400">Tekan tombol generate. Boom! 20 foto siap download dalam sekejap.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex-1 bg-dark-800 p-8 rounded-3xl border border-white/10 relative overflow-hidden" data-aos="zoom-in">
+                    <!-- UI Simulation -->
+                    <div class="space-y-4 opacity-50 blur-[1px] select-none pointer-events-none">
+                        <div class="h-8 w-1/3 bg-gray-700 rounded mb-8"></div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="aspect-square bg-gray-700 rounded-xl"></div>
+                            <div class="aspect-square bg-gray-700 rounded-xl"></div>
+                            <div class="aspect-square bg-gray-700 rounded-xl"></div>
+                            <div class="aspect-square bg-gray-700 rounded-xl"></div>
+                        </div>
+                    </div>
+
+                    <!-- Overlay CTA -->
+                    <div class="absolute inset-0 flex items-center justify-center bg-black/60 backdrop-blur-sm">
+                        <div class="text-center">
+                            <div class="text-6xl mb-4 animate-bounce">👇</div>
+                            <button onclick="document.getElementById('download').scrollIntoView()" class="px-8 py-3 bg-neon text-black font-bold rounded-full hover:scale-105 transition-transform">
+                                Coba Sendiri
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof / Testimonials -->
+    <section id="testimonials" class="py-24 bg-dark-800 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h2 class="font-display font-bold text-3xl mb-12">Kata Mereka yang Sudah <span class="text-neon">Glow Up</span></h2>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Review 1 -->
+                <div class="bg-dark-900 p-6 rounded-2xl border border-white/5 text-left hover:translate-y-[-5px] transition-transform">
+                    <div class="flex text-neon mb-4">★★★★★</div>
+                    <p class="text-gray-300 mb-6">"Gila sih, foto di kamar doang bisa jadi kayak photoshoot di studio mahal. Fitur style reference-nya juara!"</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-gray-700 rounded-full bg-cover bg-center" style="background-image: url('https://randomuser.me/api/portraits/women/44.jpg')"></div>
+                        <div>
+                            <div class="font-bold text-white">Sarah A.</div>
+                            <div class="text-xs text-gray-500">Content Creator</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-dark-900 p-6 rounded-2xl border border-white/5 text-left hover:translate-y-[-5px] transition-transform">
+                    <div class="flex text-neon mb-4">★★★★★</div>
+                    <p class="text-gray-300 mb-6">"Awalnya ragu, tapi pas coba kaget banget hasilnya natural. Followers nambah drastis gara-gara feed rapih."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-gray-700 rounded-full bg-cover bg-center" style="background-image: url('https://randomuser.me/api/portraits/men/32.jpg')"></div>
+                        <div>
+                            <div class="font-bold text-white">Dimas R.</div>
+                            <div class="text-xs text-gray-500">Selebgram</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-dark-900 p-6 rounded-2xl border border-white/5 text-left hover:translate-y-[-5px] transition-transform">
+                    <div class="flex text-neon mb-4">★★★★★</div>
+                    <p class="text-gray-300 mb-6">"Sangat membantu buat stok foto jualan baju tanpa harus sewa model terus-terusan. Hemat budget!"</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-gray-700 rounded-full bg-cover bg-center" style="background-image: url('https://randomuser.me/api/portraits/women/68.jpg')"></div>
+                        <div>
+                            <div class="font-bold text-white">Bella K.</div>
+                            <div class="text-xs text-gray-500">Online Shop Owner</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA / Download Section -->
+    <section id="download" class="py-24 relative overflow-hidden">
+        <div class="absolute inset-0 bg-neon/10 skew-y-3 transform origin-bottom-right"></div>
+        
+        <div class="max-w-4xl mx-auto px-6 relative z-10 text-center">
+            <div class="glass-card p-12 rounded-[3rem] border border-neon/30 shadow-[0_0_50px_rgba(204,255,0,0.1)]">
+                <h2 class="font-display font-bold text-4xl md:text-6xl mb-6 text-white">Siap Untuk <span class="text-neon">Viral?</span></h2>
+                <p class="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
+                    Jangan biarkan feed Instagram kamu membosankan. Bergabunglah dengan revolusi AI art sekarang juga.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="https://gemini.google.com/share/aa73bf5b2dbf" target="_blank" class="px-8 py-4 bg-neon text-black font-bold text-lg rounded-xl hover:shadow-[0_0_30px_#ccff00] transition-all transform hover:-translate-y-1 flex items-center justify-center gap-3">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"/></svg>
+                        Download Aplikasi (v1.0)
+                    </a>
+                    <button class="px-8 py-4 bg-dark-800 border border-gray-600 text-white font-bold text-lg rounded-xl hover:bg-gray-700 transition-all">
+                        Akses Web Version
+                    </button>
+                </div>
+                
+                <p class="mt-6 text-sm text-gray-500">
+                    *Tersedia untuk Android & iOS • Gratis 3x Generasi per Hari
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-12 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2">
+                <div class="w-6 h-6 bg-neon rounded text-black flex items-center justify-center font-bold text-sm">I</div>
+                <span class="font-display font-bold text-white">Instagramable.AI</span>
+            </div>
+            
+            <div class="text-gray-500 text-sm">
+                &copy; 2024 Squad Kreatif. All rights reserved.
+            </div>
+            
+            <div class="flex gap-6">
+                <a href="#" class="text-gray-500 hover:text-neon transition-colors"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg></a>
+                <a href="#" class="text-gray-500 hover:text-neon transition-colors"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.85-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Init Animate On Scroll
+        AOS.init({
+            duration: 800,
+            once: true,
+        });
+
+        // Navbar Blur Effect on Scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-lg');
+            } else {
+                navbar.classList.remove('shadow-lg');
+            }
+        });
+    </script>
+</body>
+</html>
